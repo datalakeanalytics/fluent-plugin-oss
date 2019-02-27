@@ -25,6 +25,10 @@ module Fluent
     def configure(conf)
       super
     end
+    
+    def multi_workers_ready?
+      true
+    end
 
     def compress(chunk, tmp)
       res = system "gzip -c #{chunk.path} > #{tmp.path}"
